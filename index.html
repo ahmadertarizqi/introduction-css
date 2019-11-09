@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="author" content="Ahmaderta Rizqi">
+	<title>CSS-Introduction</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		.slides {
+			width: 1150px !important;
+		}
+		p {
+			text-align: justify;
+		}
+		.reveal .slide-number {
+			display: block;
+			top: 10px;
+			bottom: auto;
+			font-size: 40px;
+			right: 10px;
+			background:#8e44ad;
+			border-radius: 4px;
+			padding: 5px 10px;
+		}
+		/* style for text-editor */
+		.reveal pre {
+			font-size: 20px !important;
+			width: 100% !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- slide 1 -->
+			<section>
+				<h1>Introduction Css</h1>
+				<div>
+					<img src="img/layout.png" width="25%" class="img-responsive" alt="">
+				</div>
+				<span>Manage your website beautiful🤗</span>
+				<br>
+				<span>Author : Ahmaderta Rizqi Imam Yusupi</span>
+			</section>
+
+			<!-- slide 2 -->
+			<section id="aboutdeck">
+				<h3>About This Deck 😎</h3>
+				<ul>
+					<li class="fragment fade-left">Essentials Css</li>
+					<li class="fragment fade-left">Menggunakan inline, internal, and external CSS..?</li>
+					<li class="fragment fade-left">Menggunakan Element, ID, dan Class Selectors</li>
+					<li class="fragment fade-left">Konsep Box Model</li>
+					<li class="fragment fade-left">CSS Display dan Position</li>
+					<li class="fragment fade-left">Page Layout</li>
+				</ul>
+			</section>
+			
+			<!-- slide 3 -->
+			<section id="essentialcss">
+				<div class="separate-icon-down"><span>&darr;</span></div>
+				<section>
+					<h3>Apa itu CSS..? 🤔</h3>
+					<p class="fragment fade-up" style="padding: 0 75px;text-align: justify;">CSS singkatan dari <strong>Cascading Style Sheet</strong>, yakni dokumen yang berisi definisi style untuk sebuah dokumen HTML atau untuk mengatur tampilan dari dokumen HTML, meliputi layout dokumen, pewarnaan dan tampilan font dan teks dan lain sebagainya. CSS tidak pernah lepas dari HTML karna selalu berpasangan</p>
+				</section>
+				<section>
+					<h3>Analogi-nya seperti ini !!</h3>
+					<img src="img/analogi.jpg" class="img-responsive" width="70%" alt="">
+					<ul>
+						<li class="fragment fade-left"><span style="font-size: 30px;">HTML sebagai struktur dari bangunan/kerangka</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;">CSS sebagai tampilan luar dari bangunan/kerangka agar terlihat menarik</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;">JAVASCRIPT sebagai perilaku/aksi dari bangunan/kerangka</span></li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- slide 4 -->
+			<section>
+				<div class="separate-icon-down"><span>&darr;</span></div>
+				<section>
+					<h3>Menggunakan CSS ada 3 Cara</h3>
+					<ul>
+						<li>Inline CSS, digunakan untuk tag element HTML tertentu</li>
+						<li>Internal CSS, digunakan di dalam bagian <code data-trim> Head </code>HTML</li>
+						<li>External CSS, digunakan pada file terpisah tidak jadi satu dengan HTML</li>
+					</ul>
+				</section>		
+				<section>
+					<h3>Penggunaan Inline CSS</h3>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!DOCTYPE html>
+							<html>
+							<body style="background-color:black;">
+								<h1 style="color:blue;text-align:center;">Ini Inline CSS</h1>
+								<p style="color:red;">Banyak Cara menjadi Developer</p>
+							</body>
+							</html>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h3>Penggunaan Internal CSS</h3>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!DOCTYPE html>
+							<html>
+							<head>
+								<style>
+									body {
+										background-color: red;
+									}
+									h1 {
+										color: maroon;
+										margin-left: 40px;
+									}
+								</style>
+							</head>
+							<body>
+								<h1>This is a heading</h1>
+								<p>This is a paragraph.</p>
+							</body>
+							</html> 
+							```
+						</script>
+					</div>				
+				</section>
+				<section>
+					<h3>Penggunaan External CSS</h3>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!DOCTYPE html>
+							<html>
+							<head>
+								<link rel="stylesheet" type="text/css" href="mystyle.css">
+							</head>
+							<body>
+								<h1>This is a heading</h1>
+								<p>This is a paragraph.</p>
+							</body>
+							</html> 
+							```
+						</script>
+					</div>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* === file @style.css === */
+
+							body {
+								background-color: lightblue;
+							}
+							h1 {
+								color: navy;
+								margin-left: 20px;
+							}
+							```
+						</script>
+					</div>				
+				</section>
+			</section>
+
+			<!-- slide 5 -->
+			<section>
+				<div class="separate-icon-down"><span>&darr;</span></div>
+				<section>
+					<h3>CSS Syntax</h3>
+					<img src="img/css-syntax.png" alt="">
+					<ul>
+						<li class="fragment fade-left"><span style="font-size: 30px;">Selector menunjukan ke elemen HTML yang ingin di tambah/ubah CSS nya.</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;">Blok deklarasi berisi satu atau lebih deklarasi yang dipisahkan oleh titik koma.</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;">Setiap deklarasi menyertakan nama properti CSS dan nilai, dipisahkan oleh titik dua.</span></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Element, ID, & Class Selectors di CSS</h3>
+					<p>Di CSS setiap pemanggilan selector Element, ID, dan Class berbeda-beda. Berikut syaratnya :</p>
+					<ul>
+						<li class="fragment fade-left"><span style="font-size: 30px;">Menggunakan selector "Element" dengan cara memanggil elementnya langsung, misal nama element "<code>namaelement</code>"</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;">Menggunakan selector "ID" dengan cara di awali huruf hashtag atau pagar "<code>#namaid</code>"</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;">Menggunakan selector "Class" dengan cara di awali titik "<code>.namaclass</code>" </span></li>
+					</ul>
+					<span class="fragment fade-up" style="margin-top: 30px;display: inline-block;">Next</span>
+				</section>
+				<section>
+					<h3>Menggunakan selector "Element"</h3>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!DOCTYPE html>
+							<html>
+							<head>
+								<link rel="stylesheet" type="text/css" href="style.css">
+							</head>
+							<body>
+								<h1>Ini Element H1</h1>
+								<p>Ini Element P</p>
+							</body>
+							</html> 
+							```
+						</script>
+					</div>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* === file @style.css === */
+
+							h1 { color: red; }
+							p {
+								color: blue;
+								background-color: #000;
+							}
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h3>Menggunakan selector "ID"</h3>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!DOCTYPE html>
+							<html>
+							<head>
+								<link rel="stylesheet" type="text/css" href="style.css">
+							</head>
+							<body>
+								<div id="idbro">Ini Element div yg mempunyai ID</div>
+								<p id="inijugaid">Ini Element ID juga</p>
+							</body>
+							</html> 
+							```
+						</script>
+					</div>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* === file @style.css === */
+
+							#idbro { color: black; }
+							#inijugaid {
+								color: blue;
+								background-color: #000;
+							}
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h3>Menggunakan selector "Class"</h3>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!DOCTYPE html>
+							<html>
+							<head>
+								<link rel="stylesheet" type="text/css" href="style.css">
+							</head>
+							<body>
+								<div class="classbro">Ini Element div yg mempunyai namaclass</div>
+								<p class="inijugaclass">Ini Element Class juga</p>
+							</body>
+							</html> 
+							```
+						</script>
+					</div>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* === file @style.css === */
+
+							.classbro { color: yellow; }
+							.inijugaclass {
+								color: blue;
+								background-color: green;
+							}
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h3>Jadi, yg harus di gunakan yg mana?</h3>
+					<p class="fragment fade-left">Tergantung kebutuhan pada saat digunakan, seringkali digunakan secara bersamaan namun penggunaan nama selector Element, Class, atau ID di sarankan berbeda agar tidak terjadi kebingungan atau bentrok.</p>
+				</section>
+			</section>
+			
+			<style>
+
+			</style>
+			<!-- slide 6 -->
+			<section>
+				<div class="separate-icon-down"><span>&darr;</span></div>
+				<section>
+					<h3>Konsep Box Model, Apa itu? 🤔</h3>
+					<p>Box model adalah sebuah representasi sebuah kotak di dalam element HTML. Kita bisa mengatur ukuran, posisi, warna, maupun background.</p>
+				</section>
+				<section>
+					<img src="img/box-model.PNG" class="img-responsive" alt="">
+					<p>Dalam gambar tersebut, border garis berwarna merah adalah elemen HTML menggunakan konsep box model</p>
+				</section>
+				<section>
+					<p>Untuk menerapkan konsep box-model, biasanya menambahkan CSS untuk reset setiap elemen HTML, kenapa seperti itu?🤔. Karna setiap browser mempunyai engine yg berbeda otomatis terkadang berbeda-beda hasilnya dan perlu ditambahkan vendor-prefix. Untuk box model tambahkan CSS berikut : </p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* tambahkan di file file.css */
+
+							*, ::after, ::before {
+								box-sizing: border-box;
+							}
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h3>Komponen Box Model</h3>
+					<div class="box-model">
+						<div class="wrap">
+							<div class="margin fragment fade-up">
+								<span>Margin</span>
+								<div class="border fragment fade-up">
+									<span>Border</span>
+									<div class="padding fragment fade-up">
+										<span>Padding</span>
+										<div class="content fragment fade-up">
+											<span>Content</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<ul>
+						<li class="fragment fade-left"><span style="font-size: 30px;"><strong>Margin</strong>, Digunakan untuk mengatur jarak spasi element atau element parentnya.</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;"><strong>Border</strong>, Garis suatu Element atau batas garis.</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;"><strong>Padding</strong>, Jarak spasi antara border dan content.</span></li>
+						<li class="fragment fade-left"><span style="font-size: 30px;"><strong>Content</strong>, Isian dari element, bisa berupa text atau elemen lain, gambar, dan lain sebagainya</span></li>
+					</ul>
+				</section>
+				<section>
+					<h4>Menambahkan Margin di Element</h4>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<html>
+							<head>
+								<style>
+									.margin {
+										margin: 20px 30px 20px 30px;
+										/* atau */
+										margin-top: 20px;
+										margin-left: 30px;
+										margin-bottom: 20px;
+										margin-right: 30px;
+									}
+								</style>
+							</head>
+							<body>
+								<div class="margin">
+									<div class="padding">
+										Content
+									</div>
+								</div>
+							</body>
+							</html>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h4>Menambahkan Padding di Element</h4>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<html>
+							<head>
+								<style>
+									.padding {
+										padding: 10px 30px 10px 30px;
+										/* atau */
+										padding-top: 10px;
+										padding-left: 30px;
+										padding-bottom: 10px;
+										padding-right: 30px;
+									}
+								</style>
+							</head>
+							<body>
+								<div class="margin">
+									<div class="padding">
+										Content
+									</div>
+								</div>
+							</body>
+							</html>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h4>Menambahkan Border di Element</h4>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<html>
+							<head>
+								<style>
+									.padding {
+										padding: 10px 30px 10px 30px;
+									}
+									.border {
+										border: 2px solid red;
+									}
+								</style>
+							</head>
+							<body>
+								<div class="margin">
+									<div class="padding border">
+										Content
+									</div>
+								</div>
+							</body>
+							</html>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h4>Dan kira-kira hasilnya seperti ini</h4>
+					<br>
+					<div style="border: 1px solid #fff;margin: 0 auto;width: 400px;">
+						<div class="c-margin">
+							<div class="c-padding c-border">
+								Isian Content
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<!-- slide 7 -->
+			<section>
+				<div class="separate-icon-down"><span>&darr;</span></div>
+				<section>
+					<h3>CSS Display</h3>
+					<p>CSS Display adalah css properti paling penting untuk mengatur tata letak atau layout. Jadi harus mengetahui tata letak yang di inginkan dahulu sebelum membuat tata letak.</p>
+				</section>
+				<section>
+					<h3>CSS Display</h3>
+					<p>Ada banyak sekali properti CSS Display, <a href="https://www.w3schools.com/cssref/pr_class_display.asp">referensi</a> .Disini saya hanya mencontohkan yg menurut saya sering di gunakan : </p>
+					<ul>
+						<li>Display Flex (yaitu Flexbox)</li>
+						<li>Display Table (Float)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS Display</h3>
+					<p>Semisal kita ingin membuat layout menggunakan column display flex(flexbox) dan table(float) seperti di bawah ini : </p>
+					<div class="c-row-flexbox" style="padding: 10px;background-color: #8e44ad;">
+						<div class="column c-col-box">Kolom 1</div>
+						<div class="column c-col-box">Kolom 2</div>
+						<div class="column c-col-box">Kolom 3</div>
+						<div class="column c-col-box">Kolom 4</div>
+					</div>
+				</section>
+				<section>
+					<h4>Menggunakan display Flex (Flexbox)</h4>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<html>
+							<head>
+								<style>
+									*, ::after, ::before {
+										box-sizing: border-box
+									}
+									.row-flexbox {
+										display: flex;
+										flex-wrap: wrap;
+									}
+									.kolom {
+										flex-basis: 25%;
+										max-width: 25%;
+									}
+								</style>
+							</head>
+							<body>
+								<div class="row-flexbox">
+									<div class="kolom">col flexbox 1</div>
+									<div class="kolom">col flexbox 2</div>
+									<div class="kolom">col flexbox 3</div>
+									<div class="kolom">col flexbox 4</div>
+								</div>
+							</body>
+							</html>
+							```
+						</script>
+					</div>
+					<div class="c-row-flexbox" style="padding: 10px;background-color: #e74c3c;">
+						<div class="column c-col-box">col flexbox 1</div>
+						<div class="column c-col-box">col flexbox 2</div>
+						<div class="column c-col-box">col flexbox 3</div>
+						<div class="column c-col-box">col flexbox 4</div>
+					</div>
+				</section>
+				<section>
+					<h4>Menggunakan display Table (Float)</h4>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<html>
+							<head>
+								<style>
+									*, ::after, ::before {
+										box-sizing: border-box
+									}
+									.row-float {
+										display: table;
+										clear: both;
+									}
+									.col-float {
+										float: left;
+										width: 50%;
+									}
+								</style>
+							</head>
+							<body>
+								<div class="row-float">
+									<div class="col-float">Kolom 1</div>
+									<div class="col-float">Kolom 2</div>
+								</div>
+							</body>
+							</html>
+							```
+						</script>
+					</div>
+					<div class="row-float">
+						<div class="col-float">Kolom 1</div>
+						<div class="col-float">Kolom 2</div>
+					</div>
+				</section>
+				<section>
+					<h4>
+						Sumber Referensi lebih lengkap tentang CSS Display
+						<br>
+						<a href="https://www.w3schools.com/css/css_display_visibility.asp">https://www.w3schools.com/css/css_display_visibility.asp</a>
+					</h4>
+				</section>
+			</section>
+
+			<!-- slide 8 -->
+			<section>
+				<div class="separate-icon-down"><span>&darr;</span></div>
+				<section>
+					<h3>CSS Position 💻</h3>
+					<p>CSS Position adalah properti CSS yg menentukan jenis posisi yg digunakan suatu elemen, meliputi (static, relative, fixed, absolute, atau sticky). Ada lima value untuk properti position : </p>
+					<ul>
+						<li>Static (statis)</li>
+						<li>Relative (relatif)</li>
+						<li>Fixed (tetap)</li>
+						<li>Absolute (absolut)</li>
+						<li>Sticky (lengket atau presisi)</li>
+					</ul>
+				</section>
+				<style>
+					
+				</style>
+				<section>
+					<h4>CSS Position : Static</h4>
+					<div class="row">
+						<div class="column is">
+							<div data-markdown>
+								<script type="text/template">
+									```
+									<html>
+									<head>
+										<style>
+											.box {
+												width: 100px;
+												height: 100px;
+												background: red;
+												border: 3px solid yellow;
+											}
+										</style>
+									</head>
+									<body>
+										<div class="box" style="position: static;"></div>
+									</body>
+									</html>
+									```
+								</script>
+							</div>
+						</div>
+						<div class="column">
+							<div class="d-wrap-box">
+								<div class="d-box" style="position: static;"></div>
+								<p style="font-size: 25px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex consectetur beatae tempore ipsum, architecto provident nesciunt ducimus porro quae, eius officia voluptas fugit sapiente inventore expedita deserunt excepturi, tempora nulla sit neque! Omnis, laborum temporibus necessitatibus dignissimos distinctio voluptatibus ea veniam reiciendis quae provident, odit quasi atque voluptates eligendi et excepturi dolorem cupiditate culpa. Magni, id voluptatem? Dicta commodi culpa voluptatum. Quae similique dolores cupiditate animi impedit, dicta soluta ullam aut quo quam nulla repellat tempore placeat, aspernatur fugiat accusamus perferendis. Omnis totam nulla porro suscipit enim nostrum fugiat eius id fugit dolore explicabo laborum eum vitae, magni error rem.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h4>CSS Position : Relative</h4>
+					<div class="row">
+						<div class="column is">
+							<div data-markdown>
+								<script type="text/template">
+									```
+									<html>
+									<head>
+										<style>
+											.box {
+												width: 100px;
+												height: 100px;
+												background: red;
+												border: 3px solid yellow;
+											}
+											.p-relative {
+												position: relative;
+												top: 40px;
+												left: 40px;
+											}
+										</style>
+									</head>
+									<body>
+										<div class="box p-relative"></div>
+									</body>
+									</html>
+									```
+								</script>
+							</div>
+						</div>
+						<div class="column">
+							<div class="d-wrap-box">
+								<div class="d-box" style="position: relative; top: 40px; left: 40px;"></div>
+								<p style="font-size: 25px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex consectetur beatae tempore ipsum, architecto provident nesciunt ducimus porro quae, eius officia voluptas fugit sapiente inventore expedita deserunt excepturi, tempora nulla sit neque! Omnis, laborum temporibus necessitatibus dignissimos distinctio voluptatibus ea veniam reiciendis quae provident, odit quasi atque voluptates eligendi et excepturi dolorem cupiditate culpa. Magni, id voluptatem? Dicta commodi culpa voluptatum. Quae similique dolores cupiditate animi impedit, dicta soluta ullam aut quo quam nulla repellat tempore placeat, aspernatur fugiat accusamus perferendis. Omnis totam nulla porro suscipit enim nostrum fugiat eius id fugit dolore explicabo laborum eum vitae, magni error rem.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h4>CSS Position : Fixed</h4>
+					<div class="row">
+						<div class="column is">
+							<div data-markdown>
+								<script type="text/template">
+									```
+									<html>
+									<head>
+										<style>
+											.box {
+												width: 100px;
+												height: 100px;
+												background: red;
+												border: 3px solid yellow;
+											}
+											.p-relative {
+												position: fixed;
+												top: 60px;
+												right: 40px;
+											}
+										</style>
+									</head>
+									<body>
+										<div class="box p-fixed"></div>
+									</body>
+									</html>
+									```
+								</script>
+							</div>
+						</div>
+						<div class="column">
+							<div class="d-wrap-box">
+								<div class="d-box" style="position: fixed; top: 60px; right: 40px;"></div>
+								<p style="font-size: 25px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex consectetur beatae tempore ipsum, architecto provident nesciunt ducimus porro quae, eius officia voluptas fugit sapiente inventore expedita deserunt excepturi, tempora nulla sit neque! Omnis, laborum temporibus necessitatibus dignissimos distinctio voluptatibus ea veniam reiciendis quae provident, odit quasi atque voluptates eligendi et excepturi dolorem cupiditate culpa. Magni, id voluptatem? Dicta commodi culpa voluptatum. Quae similique dolores cupiditate animi impedit, dicta soluta ullam aut quo quam nulla repellat tempore placeat, aspernatur fugiat accusamus perferendis. Omnis totam nulla porro suscipit enim nostrum fugiat eius id fugit dolore explicabo laborum eum vitae, magni error rem.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h4>CSS Position : Absolute</h4>
+					<div class="row">
+						<div class="column is">
+							<div data-markdown>
+								<script type="text/template">
+									```
+									<html>
+									<head>
+										<style>
+											.box {
+												width: 100px;
+												height: 100px;
+												background: red;
+												border: 3px solid yellow;
+											}
+											.wrap { position: relative; }
+											.p-absolute {
+												position: absolute;
+												top: 40%;
+												right: 40px;
+											}
+										</style>
+									</head>
+									<body>
+										<div class="wrap">
+											<div class="box p-absolute"></div>
+										</div>
+									</body>
+									</html>
+									```
+								</script>
+							</div>
+						</div>
+						<div class="column">
+							<div class="d-wrap-box">
+								<div class="d-box" style="position: absolute; top: 40%; right: 40px;"></div>
+								<p style="font-size: 25px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex consectetur beatae tempore ipsum, architecto provident nesciunt ducimus porro quae, eius officia voluptas fugit sapiente inventore expedita deserunt excepturi, tempora nulla sit neque! Omnis, laborum temporibus necessitatibus dignissimos distinctio voluptatibus ea veniam reiciendis quae provident, odit quasi atque voluptates eligendi et excepturi dolorem cupiditate culpa. Magni, id voluptatem? Dicta commodi culpa voluptatum. Quae similique dolores cupiditate animi impedit, dicta soluta ullam aut quo quam nulla repellat tempore placeat, aspernatur fugiat accusamus perferendis. Omnis totam nulla porro suscipit enim nostrum fugiat eius id fugit dolore explicabo laborum eum vitae, magni error rem.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h4>CSS Position : Sticky</h4>
+					<div class="row">
+						<div class="column is">
+							<div data-markdown>
+								<script type="text/template">
+									```
+									<html>
+									<head>
+										<style>
+											.box {
+												width: 100px;
+												height: 100px;
+												background: red;
+												border: 3px solid yellow;
+											}
+											.wrap { position: relative; }
+											.p-sticky {
+												position: sticky;
+												position: -webkit-sticky;
+												top: 50px;
+											}
+										</style>
+									</head>
+									<body>
+										<div class="wrap">
+											<div class="box p-sticky"></div>
+										</div>
+									</body>
+									</html>
+									```
+								</script>
+							</div>
+						</div>
+						<div class="column">
+							<div class="d-wrap-box">
+								<div class="d-box" style="position: sticky; top: 50px;"></div>
+								<p style="font-size: 25px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex consectetur beatae tempore ipsum, architecto provident nesciunt ducimus porro quae, eius officia voluptas fugit sapiente inventore expedita deserunt excepturi, tempora nulla sit neque! Omnis, laborum temporibus necessitatibus dignissimos distinctio voluptatibus ea veniam reiciendis quae provident, odit quasi atque voluptates eligendi et excepturi dolorem cupiditate culpa. Magni, id voluptatem? Dicta commodi culpa voluptatum. Quae similique dolores cupiditate animi impedit, dicta soluta ullam aut quo quam nulla repellat tempore placeat, aspernatur fugiat accusamus perferendis. Omnis totam nulla porro suscipit enim nostrum fugiat eius id fugit dolore explicabo laborum eum vitae, magni error rem.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<!-- slide 9 -->
+			<section>
+				<div class="separate-icon-down"><span>&darr;</span></div>
+				<section>
+					<h3>Membuat Page Layout 👨‍💻</h3>
+					<p>Disini kita akan menerapkan CSS untuk membuat Layout. Langsung saja, buat folder baru dengan nama "Latihan Layout Web" dan buat file baru dengan <code>index.html</code> dan <code>style.css</code> di dalamnya.</p>
+				</section>
+				<section>
+					<h4>Berikut Skema/Gambaran Layout yang akan di buat : </h4>
+					<img src="img/skema-layout.png" alt="" style="max-width: 100%; height: auto;" width="750px">
+				</section>
+				<section>
+					<p>Tuliskan kode berikut di dalam <code>index.html</code>, untuk file css bisa menggunakan external, inline, atau internal. Dalam contoh ini kita menggunakan css internal.</p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<html>
+							<head>
+								<style>
+									.header {
+										background-color: #2ecc71;
+										min-height: 75px;
+									}
+									.content {
+										background-color: #8e44ad;
+										min-height: 75px;
+									}
+									.side {
+										background-color: #f39c12;
+										min-height: 75px;
+									}
+									.footer {
+										background-color: #e74c3c;
+										min-height: 75px;
+									}
+								</style>
+							</head>
+							<body>
+								<div class="header">
+									<h3>Logo Website</h3>
+								</div>
+								
+								<div class="content">
+									<h3>Our Contents</h3>
+								</div>
+								
+								<div class="side">
+									<h3>Popular Contents</h3>
+								</div>
+								
+								<div class="footer">
+									<p>copyright 2019 My Website</p>
+								</div>
+							</body>
+							</html>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h4>Buka di browser maka hasilnya muncul seperti ini : </h4>
+					<img src="img/demo/ss-1.png" class="img-responsive" width="1000px">
+				</section>
+				<section>
+					<p>Kemudian kita tambahkan nama, dan logo website di bagian header. Perbarui kode HTML di dalam <span style="color:#2ecc71;">&lt;div class=”header”&gt;&lt;/div&gt;</span> menjadi seperti ini : </p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!-- index.html -->
+							<body>
+								<div class="header">
+									<div class="logo">
+										<img src="asset-layout/head-logo.png" width="100px" alt="">
+									</div>
+									<div class="menu">
+										<ul class="inner-menu">
+											<li><a href="#">Home</a></li>
+											<li><a href="#">About</a></li>
+											<li><a href="#">Contact</a></li>
+										</ul>
+									</div>
+								</div>
+							</body>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<p>Dan tambahkan css berikut di file <code>style.css</code></p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* style.css */
+							.header {
+								background-color: #2ecc71;
+								min-height: 75px;
+								/* tambahkan ini */
+								text-align: center;
+							}
+							.menu {
+								background-color: #27ae60;
+								margin-top: 12px;
+							}
+							.menu .inner-menu {
+								padding: 0;
+								margin: 0;
+								list-style: none;
+							}
+							.menu .inner-menu li {
+								display: inline-block;
+							}
+							.menu .inner-menu li a {
+								padding: 10px 20px;
+								text-decoration: none;
+								display: block;
+								color: #fff;
+							}
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<h4>Dan hasilnya seperti ini : </h4>
+					<img src="img/demo/ss-2.png" class="img-responsive" width="1000px" alt="">
+				</section>
+				<section>
+					<p>Kemudian kita atur tata letak atau layout <span style="color:#2ecc71;">&lt;div class=”content”&gt;&lt;/div&gt;</span> dan <span style="color:#2ecc71;">&lt;div class=”side”&gt;&lt;/div&gt;</span> menjadi dua kolom. Tambahkan <span style="color:#2ecc71;">&lt;div class=”row”&gt;&lt;/div&gt;</span> untuk membungkus div "content" dan "side" .</p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!-- index.html -->
+							
+							<body>
+								<div class="row">
+									<div class="content"></div>
+									<div class="side"></div>
+								</div>
+							</body>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<p>Tambahkan css berikut : </p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* style.css */
+							.row::after {
+								content: ' ';
+								clear: both;
+								display: table;
+							}
+							.content {
+								background-color: #8e44ad;
+								min-height: 450px;
+								float: left;
+								width: 70%;
+							}
+							.side {
+								background-color: #f39c12;
+								min-height: 450px;
+								float: left;
+								width: 30%;
+							}
+							```
+						</script>
+					</div>
+					<p style="font-size: 30px;"><strong>##IMPORTANT##</strong> Element <span style="color:#2ecc71;">&lt;div class=”row”&gt;&lt;/div&gt;</span> berfungsi sebagai menentukan tipe properti tata letak atau display layout. Disini saya menamakan "row" karna artinya baris. Sebagai pembungkus kolom2 yg ada di dalamnya</p>
+				</section>
+				<section>
+					<h4>Dan hasilnya seperti ini : </h4>
+					<img src="img/demo/ss-3.png" class="img-responsive" width="1000px" alt="">
+				</section>
+				<section>
+					<p>Lalu tambahkan beberapa kolom product di dalam <span style="color:#2ecc71;">&lt;div class=content&gt;&lt;/div&gt;</span>. Tambahkan kode HTML berikut di dalam <span style="color:#2ecc71;">&lt;div class=”content”&gt;&lt;/div&gt;</span></p>
+
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!-- index.html -->
+							
+							<div class="content">
+								<!-- tambahkan div class row untuk membuat baris kolom -->
+								<div class="row" style="padding: 20px;">
+									<div class="column-product">
+										<div class="box-product">
+											<img src="asset-layout/tv.jpg" class="img-product" alt="">
+											<div class="text">
+												<h4>Product 1</h4>
+												<p>Rp 250.000</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<p>Dan jangan lupa tambahkan CSS berikut untuk kolom product :</p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* style.css */
+							.column-product {
+								float: left;
+								width: 33.333%;
+								padding-left: 12px;
+								padding-right: 12px;
+								margin-bottom: 15px;
+							}
+							.box-product {
+								background-color:#fff;
+								padding: 10px;
+								border-radius: 4px;
+							}
+							.img-product {
+								max-width: 100%;
+								height: 200px;
+							}
+							```
+						</script>
+						
+					</div>
+				</section>
+				<section>
+					<p>Berikut hasil kolom productnya : </p>
+					<img src="img/demo/ss-4.png" class="img-responsive" alt="">
+				</section>
+				<section>
+					<p>Kemudian copy paste kolom yang sudah dibuat menjadi sebanyak 3x. Sehingga hasilnya seperti ini : </p>
+					<img src="img/demo/ss-5.png" class="img-responsive" width="1000px" alt="">
+				</section>
+				<section>
+					<p>Selanjutnya kita akan membuat list product populer berdasarkan category yg di letakkan di dalam <span style="color:#2ecc71;">&lt;div class=side&gt;&lt;/div&gt;</span>. Tambahkan kode HTML berikut : </p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							<!-- index.html -->
+							<div class="side">
+								<div class="inner-side">
+									<h3>Popular Products Category</h3>
+									<ul class="product-populer">
+										<li>Sepatu</li>
+										<li>Television</li>
+										<li>Baju Kemeja</li>
+										<li>Alat Masak</li>
+										<li>Alat Komputer</li>
+									</ul>
+								</div>
+							</div>
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<p>Jangan lupa juga tambahkan CSS nya</p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* style.css */
+
+							.inner-side {
+								padding: 0 25px;
+							}
+							.product-populer {
+								padding-left: 0;
+								list-style: none;
+							}
+							.product-populer li {
+								padding: 10px;
+								background:#fff;
+								margin-bottom: 10px;
+								border-radius: 4px;
+							}
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<p>Sehingga hasilnya seperti ini : </p>
+					<img src="img/demo/ss-6.png" class="img-responsive" width="1000px" alt="">
+				</section>
+				<section>
+					<p>Footer biasanya hanya digunakan untuk menampilkan identitas singkat, quick links, atau copyright di suatu website. Lalu disini untuk footer kita pindahkan saja posisinya menjadi center (tengah). Dengan cara menambahkan css berikut ini : </p>
+					<div data-markdown>
+						<script type="text/template">
+							```
+							/* style.css */
+
+							.footer {
+								background-color: #e74c3c;
+								min-height: 75px;
+
+								/* tambahkan ini */
+								padding: 30px;
+								text-align: center;
+								text-transform: uppercase;
+								color:#fff;
+							}
+							```
+						</script>
+					</div>
+				</section>
+				<section>
+					<p>Sehingga hasil akhirnya seperti ini : </p>
+					<img src="img/demo/ss-7.png" class="img-responsive" width="1000px" alt="">
+				</section>
+			</section>
+			<!-- === last slide === -->
+			<section>
+				<h3>Selamat Mencoba😇 </h3>
+				<hr>
+				<h3>Quote, Motivation Letter 😁</h3>
+				<img src="img/quote.PNG" class="img-responsive" width="900px" alt="">
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+	<script>
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+
+	</script>
+</body>
+
+</html>
